@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Radio-vesti</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/stranastyle.css" rel="stylesheet">
+    <link href="css/innerstyle.css" rel="stylesheet">
+    <link href="css/jplayer.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+
+
+            $("#jplayer_audio").jPlayer({
+                ready:function(event){
+                    $(this).jPlayer("setMedia", {
+                        mp3: "tbp.mp3"
+                    });
+                },
+                swfPath:	"js/jplayer.swf",
+                supplied:	"mp3",
+                wmode:		"window"
+            });
+        });
+    </script>
+
+    <script>
+
+        <!-- YOUTUBE API -->
+        var tag = document.createElement('script');
+        tag.src = "http://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var jp_video;
+        function onYouTubeIframeAPIReady(){
+            jp_video = new YT.Player('jp_video',{
+                height		: '',
+                width		: '',
+                videoId		: 'VeL72_sFcCE',
+                playerVars:{
+                    'autohide':			0,
+                    'autoplay':			0,
+                    'controls': 		0,
+                    'fs':				1,
+                    'disablekb':		0,
+                    'modestbranding':	1,
+                    // 'cc_load_policy': 1, // forces closed captions on
+                    'iv_load_policy':	3, // annotations, 1=on, 3=off
+                    // 'playlist': videoID, videoID, videoID, etc,
+                    'rel':				0,
+                    'showinfo':			0,
+                    'theme':			'dark',	// dark, light
+                    'color':			'red'	// red, white
+                },
+                events:{
+                    'onReady': onPlayerReady,
+                    'onPlaybackQualityChange': onPlayerPlaybackQualityChange,
+                    'onPlaybackRateChange' : onPlaybackRateChange,
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                }
+            });
+        }
+
+        function onPlayerReady(data){
+            initializeJplayerControls();
+            jp_video.setVolume(80);
+            $('#jp_container_2 .jp-volume-bar .jp-volume-bar-value').width( '80%' );
+        } // END FUNCTION
+
+        function onPlayerPlaybackQualityChange(quality){
+        } // END FUNCTION
+
+        function onPlaybackRateChange(rate){
+        } // END FUNCTION
+
+        function onPlayerStateChange(state){
+            switch(state.data){
+                case -1: //unstarted
+                    /* do something */
+                    break;
+                case 0: // ended
+                    $('#jp_container_2 .jp-pause').show();
+                    $('#jp_container_2 .jp-play').hide();
+                    break;
+                case 1: // playing
+                    $('#jp_container_2 .jp-pause').show();
+                    $('#jp_container_2 .jp-play').hide();
+                    startYoutubeTime();
+                    break;
+                case 2: // paused
+                    $('#jp_container_2 .jp-pause').hide();
+                    $('#jp_container_2 .jp-play').show();
+                    break;
+                case 3: // buffering
+                    /* do something */
+                    break;
+                case 5: // video cued
+                    /* do something */
+                    break;
+                default:
+                // do nothing
+            }
+        } // END FUNCTION
+
+        function onPlayerError(error){
+            console.log(error);
+        } // END FUNCTION
+
+        function youtubeFeedCallback(data){
+            jQuery(document).ready(function(){
+                $('#jp_container_2 .jp-title ul li').text( data.entry['title'].$t /* +' - from: '+data.entry["author"][0].name.$t */ );
+                $('#jp_container_2 .jp-duration').text( Math.floor(data.entry['media$group']['yt$duration'].seconds/60)+':'+(data.entry['media$group']['yt$duration'].seconds%60) );
+            });
+        } // END FUNCTION
+
+        var youTubeFrequency = 100;
+        var youTubeInterval = 0;
+        function startYoutubeTime(){
+            if(youTubeInterval > 0) clearInterval(youTubeInterval);  // stop
+            youTubeInterval = setInterval( "updateYoutubeTime()", youTubeFrequency );  // run
+        } // END FUNCTION
+        function updateYoutubeTime(){
+            if( jp_video.getCurrentTime()>=60 ){
+                $('#jp_container_2 .jp-current-time').text( Math.floor(jp_video.getCurrentTime()/60)+':'+FormatNumberLength(Math.round(jp_video.getCurrentTime()%60),2) );
+            }else{
+                $('#jp_container_2 .jp-current-time').text( '0:'+FormatNumberLength(Math.round(jp_video.getCurrentTime()),2) );
+
+                $('#jp_container_2 .jp-progress .jp-play-bar').width( Math.round((jp_video.getCurrentTime()/jp_video.getDuration())*100)+'%' );
+            }
+        } // END FUNCTION
+        function FormatNumberLength(num,length){var r=""+num;while(r.length<length){r="0"+r;}return r;} // END FUNCTION
+
+        function initializeJplayerControls(){
+            $('#jp_container_2 .jp-pause').hide();
+            $('#jp_container_2 .jp-unmute').hide();
+            $('#jp_container_2 .jp-restore-screen').hide();
+
+            $('#jp_container_2 .jp-play').on('click',function(){
+                $(this).hide();
+                $('#jp_container_2 .jp-pause').show();
+                jp_video.playVideo();
+            });
+            $('#jp_container_2 .jp-pause').on('click',function(){
+                $(this).hide();
+                $('#jp_container_2 .jp-play').show();
+                jp_video.pauseVideo();
+            });
+            $('#jp_container_2 .jp-full-screen').on('click',function(){
+                $(this).hide();
+                $('#jp_container_2 .jp-restore-screen').show();
+                $('#jp_container_2').addClass('jp-video-full');
+                $('#jp_container_2 .jp-jplayer, #jp_container_2 #jp_video').css({'width':'100%','height':'100%'});
+            });
+            $('#jp_container_2 .jp-restore-screen').on('click',function(){
+                $(this).hide();
+                $('#jp_container_2 .jp-full-screen').show();
+                $('#jp_container_2').removeClass('jp-video-full');
+                $('#jp_container_2 .jp-jplayer, #jp_container_2 #jp_video').removeAttr('style');
+
+                $('#jp_container_2 .jp-gui').show();
+                clearTimeout(fullScreenHoverTime);
+            });
+            $('#jp_container_2 .jp-mute').on('click',function(){
+                $(this).hide();
+                $('#jp_container_2 .jp-unmute').show();
+                $('#jp_container_2 .jp-volume-bar .jp-volume-bar-value').hide();
+                jp_video.mute();
+            });
+            $('#jp_container_2 .jp-unmute').on('click',function(){
+                $(this).hide();
+                $('#jp_container_2 .jp-mute').show();
+                $('#jp_container_2 .jp-volume-bar .jp-volume-bar-value').show();
+                jp_video.unMute();
+            });
+            $('#jp_container_2 .jp-volume-bar').click(function(e){
+                var posX = $(this).offset().left, posWidth = $(this).width();
+                posX = (e.pageX-posX)/posWidth;
+                $('#jp_container_2 .jp-volume-bar .jp-volume-bar-value').width( (posX*100)+'%' ).show();
+                jp_video.setVolume(posX*100);
+
+                $('#jp_container_2 .jp-unmute').hide();
+                $('#jp_container_2 .jp-mute').show();
+            });
+            $('#jp_container_2 .jp-seek-bar').click(function(e){
+                var posX = $(this).offset().left, posWidth = $(this).width();
+                posX = (e.pageX-posX)/posWidth;
+                $('#jp_container_2 .jp-progress .jp-play-bar').width( (posX*100)+'%' );
+                posX = Math.round((posX)*jp_video.getDuration());
+                jp_video.seekTo(posX, true);
+            });
+            $("#jp_container_2.jp-video-full .jp-gui").on('click',function(e){
+                if(e.target != this) return;
+                if( $('#jp_container_2 .jp-play').is(':visible') ){
+                    $('#jp_container_2 .jp-play').click();
+                }else{
+                    $('#jp_container_2 .jp-pause').click();
+                }
+            });
+
+            var fullScreenHoverTime;
+            $("#jp_container_2.jp-video-full").on('mouseover',function(){
+                $('.jp-gui', this).show();
+                clearTimeout(fullScreenHoverTime);
+                fullScreenTimeout();
+            });
+            function fullScreenTimeout(){
+                fullScreenHoverTime = setTimeout(function(){
+                    $('#jp_container_2 .jp-gui').hide();
+                },5000);
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+<div class="wrap radio-page">
+    <div class="container">
+        <div class="row">
+            <div class="12">
+
+                <div class="row header">
+                    <div class="col-xs-12 col-md-3"></div>
+                    <div class="col-xs-12 col-md-6">
+
+                        <div class="row site-header">
+                            <div class="col-xs-6">
+                                <div class="logo">
+                                    <a href="#"><img src="img/logo.jpg" alt=""></a>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 text-right">
+                                <div class="social-box pt-25">
+                                    <a href="#">
+                                        <div class="social-item">
+                                            <span class="fa fa-soundcloud"></span>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="social-item">
+                                            <span class="fa fa-vk"></span>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="social-item">
+                                            <span class="fa fa-twitter"></span>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="social-item">
+                                            <span class="fa fa-facebook"></span>
+                                        </div>
+                                    </a>
+
+                                    <a href="#">
+                                        <div class="social-item">
+                                            <span class="fa fa-youtube"></span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-6 col-md-3"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <div class="promo-left">
+                            <img src="img/promo-radio-left.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h1 class="article-title">
+                        «Четыре новости» <span>27.01.2016, 14:00 - 15:00</span>
+                        </h1>
+
+                        <div class="row program-banner radio-bg" style="background-image: url('img/radio-bg.png');">
+                            <div class="program-banner-in">
+                                <div class="text">
+                                    <div class="names">
+                                        <div>Ведущие:</div>
+                                    <span>
+                                        <a href="#">Ксения Тумаркова</a>,
+                                        <a href="#">Юрий Мацарский</a>
+                                    </span>
+                                    </div>
+                                    <div class="times">
+                                        <div>Время выхода в эфир: </div>
+                                        <strong>Пн-Пт c 13:00 до 16:00</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Audio -->
+                        <div id="jplayer_audio" class="jp-jplayer"></div>
+                        <div id="jp_container_1" class="jp-audio">
+                            <div class="jp-type-single">
+                                <div class="jp-gui jp-interface">
+                                    <ul class="jp-controls">
+                                        <li><a href="javascript:;" class="jp-play" tabindex="1"><i class="fa fa-play"></i></a></li>
+                                        <li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="fa fa-pause"></i></a></li>
+                                        <li><a href="javascript:;" class="jp-stop" tabindex="1"><i class="fa fa-stop"></i></a></li>
+                                        <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute"><i class="fa fa-volume-up"></i></a></li>
+                                        <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute"><i class="fa fa-volume-off"></i></a></li>
+                                    </ul>
+                                    <div class="jp-progress">
+                                        <div class="jp-seek-bar">
+                                            <div class="jp-play-bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class=radio-listen>
+                                        <a href="#" title="Смотреть"><i class="fa fa-youtube-play"></i><span>Смотреть</span></a>
+                                    </div>
+                                    <div class="jp-volume-bar">
+                                        <div class="jp-volume-bar-value"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Audio -->
+                        <br>
+                        <!-- Video -->
+                        <div id="jplayer_video">
+                            <div id="jp_container_2" class="jp-video">
+                                <div class="jp-type-single">
+                                    <div id="jplayer_video" class="jp-jplayer">
+                                        <div  id="jp_video"></div>
+                                    </div>
+                                    <div class="jp-gui">
+                                        <div class="jp-interface">
+                                            <div class="jp-controls-holder">
+                                                <ul class="jp-controls">
+                                                    <li><a href="javascript:;" class="jp-play" tabindex="1"><i class="fa fa-play"></i></a></li>
+                                                    <li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="fa fa-pause"></i></a></li>
+                                                    <li><a href="javascript:;" class="jp-stop" tabindex="1"><i class="fa fa-stop"></i></a></li>
+                                                    <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute"><i class="fa fa-volume-up"></i></a></li>
+                                                    <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute"><i class="fa fa-volume-off"></i></a></li>
+                                                </ul>
+
+                                                <div class="jp-volume-bar">
+                                                    <div class="jp-volume-bar-value"></div>
+                                                </div>
+
+                                                <ul class="jp-toggles">
+                                                    <li><a href="javascript:;" class="jp-full-screen" tabindex="1" title="full screen"><i class="fa fa-expand"></i></a></li>
+                                                    <li><a href="javascript:;" class="jp-restore-screen" tabindex="1" title="restore screen"><i class="fa fa-compress"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="jp-progress">
+                                                <div class="jp-seek-bar">
+                                                    <div class="jp-play-bar"></div>
+                                                </div>
+                                            </div>
+                                            <div class=radio-listen>
+                                                <a href="#" title="Слушать"><i class="fa fa-microphone"></i><span>Слушать</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Video -->
+                        <div class="desc">
+                            Интерактивное шоу. Говорим о новостях и приглашаем к диалогу
+                                слушателей: "Будем вместе, будем говорить, объяснять, понимать,
+                                спорить. Неважно, на каком языке". Можно звонить нам по телефону
+                                <strong>(044) 390-104-6.</strong>
+                        </div>
+
+
+                            <h2 class="title">Задать вопрос в студию</h2>
+                            <div class="question-form">
+                                <div class="col-xs-12 col-md-6 left">
+                                    <input class="form-control" name="name" type="text" placeholder="Имя"/>
+                                    <input class="form-control" name="tel" type="text" placeholder="Телефон"/>
+                                    <input class="form-control" name="email" type="text" placeholder="Email"/>
+                                </div>
+                                <div class="col-xs-12 col-md-6 form-group right">
+                                    <textarea class="form-control" type="text" placeholder="Ваш вопрос"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12">
+                                        <button type="submit" class="btn btn-custom">Отправить</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <h2 class="title">Далее в эфире</h2>
+
+                            <div class="col-xs-12 col-md-12 programs-holder">
+                                    <div class="next-program ">
+                                        <span class="time">16:00</span>«Точка зрения», гость студии - Павел Новиков</div>
+                                    <div class="next-program">
+                                        <span class="time">17:00</span>Шоу Мыколы Вересня
+                                    </div>
+
+                            </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-md-3">
+                        <div class="promo-right">
+                            <img src="img/promo-radio-left.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

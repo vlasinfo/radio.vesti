@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Radio-vesti</title>
+
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/stranastyle.css" rel="stylesheet">
+	<link href="css/innerstyle.css" rel="stylesheet">
+	<link href="css/jplayer.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.jplayer.min.js"></script>
+	<script src="js/radio.js"></script>
+
+
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+		<div id="rv_player"></div>
+
+		<div id="jp_container" class="rv-player-container">
+			<ul class="jp-controls">
+				<li><a class="jp-play" href="#"><i class="fa fa-play"></i></a></li>
+				<li><a class="jp-pause" href="#"><i class="fa fa-pause"></i></a></li>
+			</ul>
+			<ul class="nav btn-rv">
+				<li class="dropdown rv-dropdown">
+					<a href="#" class="dropdown-toggle rv-track" data-toggle="dropdown">
+						<span class="play-state"></span>
+						<span class="track-name">Загрузка...</span>
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="http://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3" class="track">87,7 Севастополь</a></li>
+						<li><a href="http://www.jplayer.org/audio/mp3/Miaow-05-The-separation.mp3" class="track">100,5 Харьков</a></li>
+						<li><a href="http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3" class="track track-default">104,6 Киев</a></li>
+						<li><a href="http://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3" class="track">107,7 Днепропетровск</a></li>
+
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+</body>
+</html>

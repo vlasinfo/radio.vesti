@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Радио.Вести Главная</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/stranastyle.css" rel="stylesheet">
+    <link href="css/jplayer.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="wrap">
+        <header>
+            <div class="container site-header">
+                <div class="col-xs-12 col-sm-12 col-md-9 navigation">
+                    <nav role="navigation" class="navbar">
+                        <div class="navbar-header">
+
+                            <a href="/" class="brand"><img src="img/logo.jpg"></a>
+
+                                <div class="radio-mid-show visible-xs visible-sm visible-md">
+                                    <ul>
+                                        <li class="radio-item mob-pos"><a href="#"><i class="fa fa-microphone"></i><span>Слушать</span></a></li>
+                                        <li class="radio-item hidden-xs"><a href="#"><i class="fa fa-youtube-play"></i><span>Смотреть</span></a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="social-box  visible-sm visible-md">
+                                    <a target="_blank" href="https://soundcloud.com/radio-vesti"><div class="social-item"><span class="fa fa-soundcloud"></span></div></a>
+                                    <a target="_blank" href="http://vk.com/radiovesti"><div class="social-item"><span class="fa fa-vk"></span></div></a>
+                                    <a target="_blank" href="http://ok.ru/group/56892857188384"><div class="social-item"><span class="fa fa-odnoklassniki-square"></span></div></a>
+                                    <a target="_blank" href="https://plus.google.com/+RadioVesti/posts"><div class="social-item"><span class="fa fa-google-plus"></span></div></a>
+                                    <a target="_blank" href="https://www.instagram.com/radiovesti/"><div class="social-item"><span class="fa fa-instagram"></span></div></a>
+                                    <a target="_blank" href="https://twitter.com/radiovesti"><div class="social-item"><span class="fa fa-twitter"></span></div></a>
+                                    <a target="_blank" href="https://www.facebook.com/radiovesti"><div class="social-item"><span class="fa fa-facebook"></span></div></a>
+                                    <a target="_blank" href="https://www.youtube.com/user/radiovesti"><div class="social-item"><span class="fa fa-youtube"></span></div></a>
+                                </div>
+
+
+                            <button type="button" data-target="#navbarCollapse" class="btn navbar-toggle more-xs collapsed" data-toggle="collapse">
+                                <span class="sr-only"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <button data-target="#search-me" data-toggle="collapse" class="btn navbar-toggle search-xs collapsed" aria-expanded="false"><i class="fa fa-search"></i></button>
+
+                        <div id="navbarCollapse" class="collapse navbar-collapse nav-block">
+                            <ul class="nav navbar-nav">
+                                <li><a href="programs.html">Программы</a></li>
+                                <li><a href="interview.html">Интервью</a></li>
+                                <li><a href="schedule.html">Расписание</a></li>
+                                <li><a href="persons.html">Лица</a></li>
+                                <li><a href="polls.html">Опросы</a></li>
+                                <li><a href="news-feed.html">Новости</a></li>
+                                <li><a href="blogs.html">Блоги</a></li>
+                                <li class="radio-item hidden-xs hidden-md hidden-sm"><a href="#"><i class="fa fa-microphone"></i><span>Слушать</span></a></li>
+                                <li class="radio-item hidden-xs hidden-md hidden-sm"><a href="#"><i class="fa fa-youtube-play"></i><span>Смотреть</span></a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header visible-xs">Mы в соц. сетях</li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="https://soundcloud.com/radio-vesti"><div class="social-item"><span class="fa fa-soundcloud"></span><span>Soundcloud</span></div></a></li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="http://vk.com/radiovesti"><div class="social-item"><span class="fa fa-vk"></span><span>Вконтакте</span></div></a></li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="http://ok.ru/group/56892857188384"><div class="social-item"><span class="fa fa-odnoklassniki-square"></span><span>Одноклассники</span></div></a></li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="https://plus.google.com/+RadioVesti/posts"><div class="social-item"><span class="fa fa-google-plus"></span><span>Google Plus</span></div></a></li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="https://www.instagram.com/radiovesti/"><div class="social-item"><span class="fa fa-instagram"></span><span>Instagram</span></div></a></li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="https://twitter.com/radiovesti"><div class="social-item"><span class="fa fa-twitter"></span><span>Twitter</span></div></a></li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="https://www.facebook.com/radiovesti"><div class="social-item"><span class="fa fa-facebook"></span><span>Facebook</span></div></a></li>
+                                <li class="social-item-xs visible-xs"><a target="_blank" href="https://www.youtube.com/user/radiovesti"><div class="social-item"><span class="fa fa-youtube"></span><span>Youtube</span></div></a></li>
+                            </ul>
+                        </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="col-xs-12 col-md-3 header-right hidden-md hidden-sm">
+
+                    <div class="social-box hidden-xs">
+                        <a target="_blank" href="https://soundcloud.com/radio-vesti"><div class="social-item"><span class="fa fa-soundcloud"></span></div></a>
+                        <a target="_blank" href="http://vk.com/radiovesti"><div class="social-item"><span class="fa fa-vk"></span></div></a>
+                        <a target="_blank" href="http://ok.ru/group/56892857188384"><div class="social-item"><span class="fa fa-odnoklassniki-square"></span></div></a>
+                        <a target="_blank" href="https://plus.google.com/+RadioVesti/posts"><div class="social-item"><span class="fa fa-google-plus"></span></div></a>
+                        <a target="_blank" href="https://www.instagram.com/radiovesti/"><div class="social-item"><span class="fa fa-instagram"></span></div></a>
+                        <a target="_blank" href="https://twitter.com/radiovesti"><div class="social-item"><span class="fa fa-twitter"></span></div></a>
+                        <a target="_blank" href="https://www.facebook.com/radiovesti"><div class="social-item"><span class="fa fa-facebook"></span></div></a>
+                        <a target="_blank" href="https://www.youtube.com/user/radiovesti"><div class="social-item"><span class="fa fa-youtube"></span></div></a>
+                    </div>
+
+                </div>
+            </div>
+            <div id="search-me" class="collapse hidden-lg hidden-md hidden-sm" aria-expanded="false">
+                <div class="top-search">
+                    <form role="search" method="get" action="#">
+                        <div class="search-form">
+                            <label>
+                                <input type="text" class="search-field" placeholder="Поиск..." value="" name="search[keyword]" maxlength="50">
+                            </label>
+                            <button type="submit" class="btn btn-default search-submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </header>
+
+    <div class="main">
+        <div class="container">
+                <div id="big_slider" class="carousel slide big-slider" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+
+                    <div class="col-lg-9 col-md-8 slider-slides">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="img/main-news.jpg">
+                            <div class="carousel-caption">
+                                <h3>Бойня под Радой: реконструкция событий. Кто отдал приказ бросать гранату</h3>
+                            </div>
+                        </div><!-- End Item -->
+
+                        <div class="item">
+                            <img src="img/main-news.jpg">
+                            <div class="carousel-caption">
+                                <h3>Бойня под Радой: реконструкция событий. Кто отдал приказ бросать гранату 2</h3>
+                            </div>
+                        </div><!-- End Item -->
+
+                        <div class="item">
+                            <img src="img/main-news.jpg">
+                            <div class="carousel-caption">
+                                <h3>Бойня под Радой: реконструкция событий. Кто отдал приказ бросать гранату 3</h3>
+                            </div>
+                        </div><!-- End Item -->
+
+                        <div class="item">
+                            <img src="img/main-news.jpg">
+                            <div class="carousel-caption">
+                                <h3>Бойня под Радой: реконструкция событий. Кто отдал приказ бросать гранату 4</h3>
+                            </div>
+                        </div><!-- End Item -->
+                        <a class="left carousel-control" href="#big_slider" data-slide="prev"></a>
+                        <a class="right carousel-control" href="#big_slider" data-slide="next"></a>
+                    </div><!-- End Carousel Inner -->
+                        </div>
+                    <div class="col-lg-3 col-md-4 nav-slider">
+                        <ul class="nav">
+                            <li data-target="#big_slider" data-slide-to="0" class="active">
+                                <a href="#">
+                                    <div class="col-lg-6 col-md-6 top-img">
+                                        <img src="img/top-news-1.jpg" class="img-responsive">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 top-text">
+                                        Без прав. Как Украина отказала в статусе беженца российскому
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li data-target="#big_slider" data-slide-to="1">
+                                <a href="#">
+                                    <div class="col-lg-6 col-md-6 top-img">
+                                        <img src="img/top-news-2.jpg" class="img-responsive">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 top-text">
+                                        Без прав. Как Украина отказала в статусе беженца
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li data-target="#big_slider" data-slide-to="2">
+                                <a href="#">
+                                    <div class="col-lg-6 col-md-6 top-img">
+                                        <img src="img/top-news-3.jpg" class="img-responsive">
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 top-text">
+                                        Без прав. Как Украина отказала в статусе беженца российскому
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                            <li data-target="#big_slider" data-slide-to="3">
+                                <a href="#">
+                                    <div class="col-lg-6 col-md-6 top-img">
+                                        <img src="img/top-news-4.jpg" class="img-responsive">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 top-text">
+                                        Без прав. Как Украина отказала в статусе беженца
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div><!-- End Carousel -->
+
+
+
+            <div class="row">
+                <div class="col-lg-9 col-md-8 block-main-left">
+                    <div class="bg-grey">
+                        <div class="row">
+                            <div class="col-md-6 block-radio-video">
+                                <div id="jplayer_video" class="">
+                                    <div id="jp_container_2" class="jp-video">
+                                        <div class="jp-type-single">
+                                            <div class="jp-jplayer">
+                                                <div  id="jp_video"></div>
+                                            </div>
+                                            <div class="jp-gui">
+                                                <div class="jp-interface">
+                                                    <div class="jp-controls-holder">
+                                                        <ul class="jp-controls">
+                                                            <li><a href="javascript:;" class="jp-play" tabindex="1"><i class="fa fa-play"></i></a></li>
+                                                            <li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="fa fa-pause"></i></a></li>
+                                                            <li><a href="javascript:;" class="jp-stop" tabindex="1"><i class="fa fa-stop"></i></a></li>
+                                                            <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute"><i class="fa fa-volume-up"></i></a></li>
+                                                            <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute"><i class="fa fa-volume-off"></i></a></li>
+                                                        </ul>
+
+                                                        <div class="jp-volume-bar">
+                                                            <div class="jp-volume-bar-value"></div>
+                                                        </div>
+
+                                                        <ul class="jp-toggles">
+                                                            <li><a href="javascript:;" class="jp-full-screen" tabindex="1" title="full screen"><i class="fa fa-expand"></i></a></li>
+                                                            <li><a href="javascript:;" class="jp-restore-screen" tabindex="1" title="restore screen"><i class="fa fa-compress"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="jp-progress">
+                                                        <div class="jp-seek-bar">
+                                                            <div class="jp-play-bar"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=radio-listen>
+                                                        <a href="#" title="Слушать"><i class="fa fa-microphone"></i><span>Слушать</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                            <div class="col-md-6 block-schedule">
+                                <div class="schedule">
+                                    <ul class="list-newsfeed">
+                                        <li>
+                                            <div class="time">18:21</div>
+                                            <a href="#"><span class="name-program">Утренний эфир:</span> <span class="subject">Куда движется страна и пожертвования в метро</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">18:14</div><a href="#"><span class="name-program">Эфир с Татьяной Гончаровой и Юрием Калашниковым</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">17:59</div><a href="#"><span class="name-program">Ланч-тайм</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">17:48</div><a href="#"><span class="name-program">Эфир с Татьяной Гончаровой и Юрием Калашниковым</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">17:47</div><a href="#"><span class="name-program">"Свежий взгляд"</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">18:21</div><a href="#"><span class="name-program">Утренний эфир:</span> <span class="subject">Куда движется страна и пожертвования в метро</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">18:14</div><a href="#"><span class="name-program">Эфир с Татьяной Гончаровой и Юрием Калашниковым</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">17:59</div><a href="#"><span class="name-program">Ланч-тайм</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">17:48</div><a href="#"><span class="name-program">Эфир с Татьяной Гончаровой и Юрием Калашниковым</span></a>
+                                        </li>
+                                        <li>
+                                            <div class="time">17:47</div><a href="#"><span class="name-program">"Свежий взгляд"</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="schedule-link"><a href="#">Расписание эфиров</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row polls-block">
+
+                        <div class="col-md-6">
+                            <div class="title-small">Нужно ли отправлять в отставку Арсения Яценюка</div>
+                            <div class="vote-block">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-7 col-md-7 vote-list">
+                                        <div class="pol-vote">
+                                            <ul class="articlevotes_item_poll">
+                                                <li data-color="#6a5748" data-name="Да" data-num="1" data-val="78">
+                                                    <label class="item_poll_vote" style="display: none;"><input type="radio" name="artvote[2665]" value="1"><span>Да</span></label>
+                                                    <div class="item_poll_voted" style="display: block;"><div class="vote-check" style="background:#6a5748;"></div>Да</div>
+                                                </li>
+                                                <li data-color="#ebd88c" data-name="Нет" data-num="2" data-val="22">
+                                                    <label class="item_poll_vote" style="display: none;"><input type="radio" name="artvote[2665]" value="2"><span>Нет</span></label>
+                                                    <div class="item_poll_voted" style="display: block;"><div class="vote-check" style="background:#ebd88c;"></div>Нет</div>
+                                                </li>
+
+                                                <li class="poll-button" style="display: none;"><button type="button" class="articlevotes_item_votebut">Голосовать</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-5 col-md-5 vote-donut">
+                                        <div><canvas id="yacenukVote" width="150" height="150" style="width: 150px; height: 150px;"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                                <script>
+                                    var pieData = [{
+                                        value: 24.8,
+                                        color: "#deb406",
+                                        label: "Да"
+                                    }, {
+                                        value: 2.9,
+                                        color: "#ebd88c",
+                                        label: "Нет"
+                                    }, {
+                                        value: 5.7,
+                                        color: "#d87a26",
+                                        label: "Проблему соединения с зоной АТО надо было решить другим способом"
+                                    }, {
+                                        value: 19.1,
+                                        color: "#695749",
+                                        label: "Мне все равно – я и так туда никогда не ездил"
+                                    }];
+
+                                    var helpers = Chart.helpers;
+                                    var yacenukVote = new Chart(document.getElementById("yacenukVote").getContext("2d")).Doughnut(pieData, {
+                                    });
+
+                                    helpers.addEvent(legendHolder.firstChild, 'mouseout', function () {
+                                        yacenukVote.draw();
+                                    });
+
+                                    yacenukVote.chart.canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
+                                </script>
+                            </div>
+                            <div class="clearfix"></div>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="poll-top">
+                                <div class="poll-text">Нужно ли отправлять в отставку Арсения Яценюка</div>
+                                <div class="poll-button">
+                                    <button> Голосовать</button>
+                                </div>
+                            </div>
+                            <div class="poll-top">
+                                <div class="poll-text">Нужно ли отправлять в отставку Арсения Яценюка</div>
+                                <div class="poll-button">
+                                    <button> Результаты</button>
+                                </div>
+                            </div>
+                            <div class="all-link"><a href="#">Все опросы</a></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="poll-vote">
+                                <div class="title-small">Нужно ли отправлять в отставку Арсения Яценюка</div>
+                                <form>
+                                    <ul>
+                                        <li><label><input type="checkbox"><span>Абсолютно правильное решение – лишние риски никому не нужны</span></label></li>
+                                        <li><label><input type="checkbox"><span>Нет, это приведет к массе проблем для мирных жителей</span></label></li>
+                                        <li><label><input type="checkbox"><span>Проблему соединения с зоной АТО надо было решить другим способом</span></label></li>
+                                        <li><label><input type="checkbox"><span>Мне все равно – я и так туда никогда не ездил</span></label></li>
+                                        <li class="poll-button"><button type="button">Голосовать</button></li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="poll-vote">
+                                <div class="title-small">Нужно ли отправлять в отставку Арсения Яценюка</div>
+                                <form>
+                                    <ul>
+                                        <li><label><input type="radio" name="1" value="1"><span>Абсолютно правильное решение – лишние риски никому не нужны</span></label></li>
+                                        <li><label><input type="radio" name="1" value="2"><span>Нет, это приведет к массе проблем для мирных жителей</span></label></li>
+                                        <li><label><input type="radio" name="1" value="3"><span>Проблему соединения с зоной АТО надо было решить другим способом</span></label></li>
+                                        <li><label><input type="radio" name="1" value="4"><span>Мне все равно – я и так туда никогда не ездил</span></label></li>
+                                        <li class="poll-button"><button type="button">Голосовать</button></li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-4 block-main-right">
+                    <div class="hidden-sm hidden-xs banner"><img src="img/banner600.jpg" alt=""></div>
+                </div>
+            </div>
+
+            <div class="row hidden-sm hidden-xs">
+                <div class="col-lg-9 col-md-8 block-main-left twitter">
+                    <a class="twitter-timeline" width="100%" height="300" href="https://twitter.com/vesti"
+                       data-chrome="nofooter noscrollbar" data-widget-id="413701002089361408">Твиты от
+                        https://twitter.com/vesti</a>
+                    <script>!function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + "://platform.twitter.com/widgets.js";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, "script", "twitter-wjs");
+                    </script>
+                </div>
+                <div class="col-lg-3 col-md-4 block-main-right">
+                    <iframe name="f3f1240774" width="300px" height="300px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="http://www.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&amp;app_id=542034099206997&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D42%23cb%3Df1070a8194%26domain%3Dvesti-ukr.com%26origin%3Dhttp%253A%252F%252Fvesti-ukr.com%252Ff8f40d3e4%26relation%3Dparent.parent&amp;container_width=0&amp;height=300&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FGazetaVesti%2F&amp;locale=ru_RU&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;width=300" style="border: none; visibility: visible; width: 300px; height: 300px;" class=""></iframe>
+                </div>
+            </div>
+
+            <div class="row  photogallery">
+                <div class="col-md-12">
+
+                    <div id="photo-teasers" class="tab-pane active" role="tabpanel">
+                        <div class="photo-gallery-main">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                                </ol>
+
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <a href="#"><img src="img/photo-gallery/tmp-1.jpg" alt=""></a>
+
+                                        <div class="carousel-caption">
+                                            <a href="#" class="photo-title">
+                                                Финал отбора на Евровидение 2016
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="img/photo-gallery/tmp-2.jpg" alt=""></a>
+
+                                        <div class="carousel-caption">
+                                            <a href="#" class="photo-title">
+                                                Лучшие фотографии из instagram Дженнифер Лав Хьюитт
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="img/photo-gallery/tmp-3.jpg" alt=""></a>
+
+                                        <div class="carousel-caption">
+                                            <a href="#" class="photo-title">
+                                                Самые красивые железные дороги мира
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="img/photo-gallery/tmp-4.jpg" alt=""></a>
+
+                                        <div class="carousel-caption">
+                                            <a href="#" class="photo-title">
+                                                Курт Кобейн: эмоции и мгновения из жизни великого музыканта
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="img/photo-gallery/tmp-5.jpg" alt=""></a>
+
+                                        <div class="carousel-caption">
+                                            <a href="#" class="photo-title">
+                                                Самые красивые железные дороги мира
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row blogs">
+                <div class="col-md-12">
+                    <div class="title-rubric"><a href="#">Блоги</a></div>
+                </div>
+
+                <div class="col-md-6 col-xs-12 opinion-block">
+                    <div class="opinion-img">
+                        <a href="#"><img src="http://radio.vesti-ukr.com/pub/img/article/12/44_tn.jpg" alt=""></a>
+                    </div>
+                    <div class="opinion-text">
+                        <div class="opinion-title"><a href="#">Сколько и каких банков останется после реформ НБУ</a></div>
+                        <div class="name"><a href="#">Юрий Павленко</a></div>
+                    </div>
+                    <span class="clearfix"></span>
+                </div>
+
+                <div class="col-md-6 col-xs-12 opinion-block">
+                    <div class="opinion-img">
+                        <a href="#"><img src="http://radio.vesti-ukr.com/pub/img/article/115/92_tn.jpg" alt=""></a>
+                    </div>
+                    <div class="opinion-text">
+                        <div class="opinion-title"><a href="#">Для бизнеса коррупция – не проблема. Есть проблемы пострашнее</a></div>
+                        <div class="name"><a href="#">Александр Охрименко</a></div>
+                    </div>
+                    <span class="clearfix"></span>
+                </div>
+
+                <div class="col-md-6 col-xs-12 opinion-block">
+                    <div class="opinion-img">
+                        <a href="#"><img src="http://radio.vesti-ukr.com/pub/img/article/231/0_tn.jpg" alt=""></a>
+                    </div>
+                    <div class="opinion-text">
+                        <div class="opinion-title"><a href="#">Евроинтеграция: встреча с реальностью</a></div>
+                        <div class="name"><a href="#">Олег Волошин</a></div>
+                    </div>
+                    <span class="clearfix"></span>
+                </div>
+
+                <div class="col-md-6 col-xs-12 opinion-block">
+                    <div class="opinion-img">
+                        <a href="#"><img src="http://radio.vesti-ukr.com/pub/img/article/11/10_tn.jpg" alt=""></a>
+                    </div>
+                    <div class="opinion-text">
+                        <div class="opinion-title"><a href="#">Сколько и каких банков останется после реформ НБУ</a></div>
+                        <div class="name"><a href="#">Глеб Простаков</a></div>
+                    </div>
+                    <span class="clearfix"></span>
+                </div>
+            </div>
+
+
+            <div class="author-programs">
+                <div class="col-md-12 blocks-slider">
+                    <div class="title-rubric"><a href="#">Авторские программы</a></div>
+                    <div class="row">
+                        <div class="col-md-12  blocks-slider">
+
+                                <div id="blocksSlider" class="carousel slide" data-ride="carousel" data-type="multi" data-interval="10000">
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href="#"><img src="http://radio.vesti-ukr.com/pub/img/article/243/96_tn.jpg"></a>
+                                                    </div>
+
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">1 Слово Куликову</a></div>
+                                                        <div class="program-time"><a href="#">Сб,Вс c 08:00 до 10:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href="#"><img src="http://radio.vesti-ukr.com/pub/img/article/236/37_tn.jpg"></a>
+                                                    </div>
+
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">2 "Билингва"</a></div>
+                                                        <div class="program-time"><a href="#">Сб c 13:00 до 14:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href="#"><img src="http://radio.vesti-ukr.com/pub/img/article/10/26_tn.jpg"></a>
+                                                    </div>
+
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">3 "Тема Калныша"</a></div>
+                                                        <div class="program-time"><a href="#">Вт,Ср c 19:00 до 20:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href=""><img src="http://radio.vesti-ukr.com/pub/img/article/184/86_tn.jpg"></a>
+                                                    </div>
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">4 Шоу Павла Шеремета</a></div>
+                                                        <div class="program-time"><a href="#">Сб,Вс c 10:00 до 13:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href=""><img src="http://radio.vesti-ukr.com/pub/img/article/184/86_tn.jpg"></a>
+                                                    </div>
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">5 Шоу Павла Шеремета</a></div>
+                                                        <div class="program-time"><a href="#">Сб,Вс c 10:00 до 13:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href=""><img src="http://radio.vesti-ukr.com/pub/img/article/184/86_tn.jpg"></a>
+                                                    </div>
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">6 Шоу Павла Шеремета</a></div>
+                                                        <div class="program-time"><a href="#">Сб,Вс c 10:00 до 13:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href=""><img src="http://radio.vesti-ukr.com/pub/img/article/184/86_tn.jpg"></a>
+                                                    </div>
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">7 Шоу Павла Шеремета</a></div>
+                                                        <div class="program-time"><a href="#">Сб,Вс c 10:00 до 13:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="col-md-3 col-sm-6 col-xs-12 block-wrapper">
+                                                <div class="program">
+                                                    <div class="program-main-photo">
+                                                        <a href=""><img src="http://radio.vesti-ukr.com/pub/img/article/184/86_tn.jpg"></a>
+                                                    </div>
+                                                    <div class="program-text">
+                                                        <div class="program-name"><a href="#">8 Шоу Павла Шеремета</a></div>
+                                                        <div class="program-time"><a href="#">Сб,Вс c 10:00 до 13:00</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="left carousel-control" href="#blocksSlider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                                    <a class="right carousel-control" href="#blocksSlider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="help-push" style="height: 50px;"></div>
+    </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dotted-line"></div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="logo">
+                    <a href="#"><img src="img/logo.jpg" alt="" style="opacity: 0.2; width: 100px; "></a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-xs-4 menu">
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Реклама</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-4 info">
+                <div class="social-box">
+                    <a href="#">
+                        <div class="social-item">
+                            <span class="fa fa-soundcloud"></span>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="social-item">
+                            <span class="fa fa-vk"></span>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="social-item">
+                            <span class="fa fa-twitter"></span>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="social-item">
+                            <span class="fa fa-facebook"></span>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="social-item">
+                            <span class="fa fa-youtube"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/jquery.jplayer.min.js"></script>
+<script src="js/radio.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
