@@ -299,64 +299,230 @@
 
                     <div class="row polls-block">
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 vote-block">
                             <div class="title-small">Нужно ли отправлять в отставку Арсения Яценюка</div>
-                            <div class="vote-block">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-7 col-md-7 vote-list">
-                                        <div class="pol-vote">
-                                            <ul class="articlevotes_item_poll">
-                                                <li data-color="#6a5748" data-name="Да" data-num="1" data-val="78">
-                                                    <label class="item_poll_vote" style="display: none;"><input type="radio" name="artvote[2665]" value="1"><span>Да</span></label>
-                                                    <div class="item_poll_voted" style="display: block;"><div class="vote-check" style="background:#6a5748;"></div>Да</div>
-                                                </li>
-                                                <li data-color="#ebd88c" data-name="Нет" data-num="2" data-val="22">
-                                                    <label class="item_poll_vote" style="display: none;"><input type="radio" name="artvote[2665]" value="2"><span>Нет</span></label>
-                                                    <div class="item_poll_voted" style="display: block;"><div class="vote-check" style="background:#ebd88c;"></div>Нет</div>
-                                                </li>
 
-                                                <li class="poll-button" style="display: none;"><button type="button" class="articlevotes_item_votebut">Голосовать</button></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-sm-5 col-md-5 vote-donut">
-                                        <div><canvas id="yacenukVote" width="150" height="150" style="width: 150px; height: 150px;"></canvas></div>
-                                    </div>
+                            <div class="col-xs-12 col-sm-7 col-md-7 vote-list">
+                                <div class="poll-vote">
+                                    <ul class="articlevotes_item_poll">
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Да</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#4D5360;"></div><span>Да</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Нет</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#6a5748;"></div><span>Нет</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Возможно</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#d87a26;"></div><span>Возможно</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Воздержусь</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#deb406;"></div><span>Воздержусь</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Свой вариант</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#ebd88c;"></div><span>Свой вариант</span>
+                                            </div>
+                                        </li>
+                                     </ul>
                                 </div>
                             </div>
-
-
+                            <div class="col-xs-12 col-sm-5 col-md-5 vote-donut">
+                                <canvas id="ChartOne" width="180" height="180"></canvas>
                                 <script>
-                                    var pieData = [{
-                                        value: 24.8,
-                                        color: "#deb406",
+                                    var data = [{
+                                        value: 30,
+                                        color: "#4D5360",
                                         label: "Да"
-                                    }, {
-                                        value: 2.9,
+                                    }, {value: 50,
+                                        color: "#6a5748",
+                                        label: "Нет"
+                                    }, {value: 100,
+                                        color: "#d87a26",
+                                        label: "Возможно"
+                                    }, {value: 40,
+                                        color: "#deb406",
+                                        label: "Воздержусь"
+                                    }, {value: 120,
+                                        color: "#ebd88c",
+                                        label: "Свой вариант"
+                                    }]
+
+                                    var options = {
+                                        animation: false,
+                                        tooltipCaretSize: 0,
+                                        tooltipFillColor: "transparent",
+                                        segmentStrokeWidth : 2,
+                                        tooltipFontColor: "#f3f3f3",
+                                        tooltipXPadding: 0,
+                                        tooltipYPadding: -7,
+                                        tooltipTemplate: "<%= value %>%",
+
+                                        onAnimationComplete: function() {
+                                            this.showTooltip(this.segments, true);
+                                        },
+                                        tooltipEvents: [],
+                                        showTooltips: true
+                                    };
+
+                                    //Get the context of the canvas element we want to select
+                                    var c = $('#ChartOne');
+                                    var ct = c.get(0).getContext('2d');
+                                    var ctx = document.getElementById("ChartOne").getContext("2d");
+                                    /*************************************************************************/
+                                    myNewChart = new Chart(ct).Doughnut(data, options);
+                                </script>
+
+                            </div>
+                            <div class="title-small">Нужно ли отправлять в отставку Арсения Яценюка 2</div>
+                            <div class="col-xs-12 col-sm-7 col-md-7 vote-list">
+
+                                <div class="poll-vote">
+                                    <ul class="articlevotes_item_poll">
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Да</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#6a5748;"></div><span>Да</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Нет</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#ebd88c;"></div><span>Нет</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 vote-donut">
+                                <canvas id="ChartTwo" width="180" height="180"></canvas>
+                                <script>
+                                    var data = [{
+                                        value: 30,
+                                        color: "#6a5748",
+                                        label: "Да"
+                                    }, {value: 70,
                                         color: "#ebd88c",
                                         label: "Нет"
-                                    }, {
-                                        value: 5.7,
-                                        color: "#d87a26",
-                                        label: "Проблему соединения с зоной АТО надо было решить другим способом"
-                                    }, {
-                                        value: 19.1,
-                                        color: "#695749",
-                                        label: "Мне все равно – я и так туда никогда не ездил"
-                                    }];
+                                    }]
 
-                                    var helpers = Chart.helpers;
-                                    var yacenukVote = new Chart(document.getElementById("yacenukVote").getContext("2d")).Doughnut(pieData, {
-                                    });
+                                    var options = {
+                                        animation: false,
+                                        tooltipCaretSize: 0,
+                                        tooltipFillColor: "transparent",
+                                        segmentStrokeWidth : 2,
+                                        tooltipFontColor: "#ffffff",
+                                        tooltipXPadding: 3,
+                                        tooltipYPadding: -7,
+                                        percentageInnerCutout: 50,
+                                        tooltipTemplate: "<%= value %>%",
+                                        onAnimationComplete: function() {
+                                            this.showTooltip(this.segments, true);
+                                        },
+                                        tooltipEvents: [],
+                                        showTooltips: true
+                                    };
 
-                                    helpers.addEvent(legendHolder.firstChild, 'mouseout', function () {
-                                        yacenukVote.draw();
-                                    });
 
-                                    yacenukVote.chart.canvas.parentNode.parentNode.appendChild(legendHolder.firstChild);
+                                    //Get the context of the canvas element we want to select
+                                    var c = $('#ChartTwo');
+                                    var ct = c.get(0).getContext('2d');
+                                    var ctx = document.getElementById("ChartTwo").getContext("2d");
+                                    /*************************************************************************/
+                                    myNewChart = new Chart(ct).Doughnut(data, options);
                                 </script>
+
                             </div>
+
+                            <div class="title-small">Нужно ли отправлять в отставку Арсения Яценюка 3</div>
+                            <div class="col-xs-12 col-sm-7 col-md-7 vote-list">
+
+                                <div class="poll-vote">
+                                    <ul class="articlevotes_item_poll">
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Да</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#6a5748;"></div><span>Да</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label class="item_poll_vote" style="display: none;">
+                                                <input type="radio" name="Да" value="1"><span>Нет</span>
+                                            </label>
+                                            <div class="item_poll_voted" style="display: block;">
+                                                <div class="vote-check" style="background:#ebd88c;"></div><span>Нет</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 vote-donut">
+                                <canvas id="ChartThree" width="180" height="180"></canvas>
+                                <script>
+                                    var data = [{
+                                        value: 30,
+                                        color: "#6a5748",
+                                        label: "Да"
+                                    }, {value: 70,
+                                        color: "#ebd88c",
+                                        label: "Нет"
+                                    }]
+
+                                    var options = {
+                                        animation: false,
+                                        tooltipCaretSize: 0,
+                                        tooltipFillColor: "transparent",
+                                        segmentStrokeWidth : 2,
+                                        tooltipFontColor: "#ffffff",
+                                        tooltipXPadding: 3,
+                                        tooltipYPadding: -7,
+                                        percentageInnerCutout: 30,
+                                        tooltipTemplate: "<%if (label){%><%=label%>:\n<%}%><%= value %>%",
+                                        onAnimationComplete: function() {
+                                            this.showTooltip(this.segments, true);
+                                        },
+                                        tooltipEvents: [],
+                                        showTooltips: true
+                                    };
+
+
+                                        //Get the context of the canvas element we want to select
+                                    var c = $('#ChartThree');
+                                    var ct = c.get(0).getContext('2d');
+                                    var ctx = document.getElementById("ChartThree").getContext("2d");
+                                    /*************************************************************************/
+                                    myNewChart = new Chart(ct).Doughnut(data, options);
+                                </script>
+
+                            </div>
+
                             <div class="clearfix"></div>
 
 
