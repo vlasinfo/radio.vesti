@@ -476,6 +476,10 @@ body header .site-header .header-right {
   display: block;
   padding: 0 5px 5px 5px;
 }
+.navigation ul li a.active {
+  color: #029893;
+  background-color: #f1f1f1;
+}
 .navigation .navbar-nav li a:focus,
 .navigation .navbar-nav li a:hover {
   background: none;
@@ -1276,7 +1280,7 @@ h2.title {
   padding-right: 0;
   color: #009a93;
   font-size: 16px;
-  position: relative;ыва
+  position: relative;
 }
 
 .timeline .timeline-item .date:before {
@@ -1475,7 +1479,7 @@ h2.title {
 .vote-block .vote-list ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 15px;
 }
 .vote-block .vote-list ul li {
   position: relative;
@@ -2011,20 +2015,54 @@ div.datepicker tr th.datepickerWeek {
 
 /*--------------------Footer-----------------------*/
 footer {
-  height: 80px;
+  height: 64px;
 }
 footer .container {
+  padding: 0 30px;
+  position: relative;
+}
+footer .navbar-default.navbar {
+  margin-top: 30px;
   padding-top: 30px;
+  border-radius: 0;
+  margin-bottom: 30px;
+  border: none;
+  border-top: 1px dashed #d8d8d8;
+}
+footer .navbar-default.navbar .navbar-nav {
+  padding-left: 115px;
+}
+footer .navbar-default.navbar .navbar-nav.info {
+  padding-left: 0;
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+footer .navbar-default .navbar-nav > li > a {
+  line-height: 64px;
+  padding: 0 8px;
+}
+footer .navbar-default .navbar-nav > li > a:hover {
+  color: #029893;
 }
 footer .container .logo {
-  padding: 0 0 16px;
+  position: absolute;
+  width: 100px;
+  opacity: 0.2;
 }
 footer .container .logo img {
   width: 200px;
 }
 footer .container .menu ul {
+  padding-top: 20px;
+}
+footer .container .menu {
+  padding: 0;
+}
+footer .container .menu ul {
   list-style: none;
-  padding: 10px 0;
+  padding: 20px 0 20px 40px;
+  text-align: center;
 }
 footer .container .menu ul li {
   display: inline-block;
@@ -2037,10 +2075,7 @@ footer .container .menu ul li a {
   color: #596c73;
 }
 footer .container .info {
-  text-align: right;
-}
-footer .container .info .social-box .social-item {
-  margin-right: 4%;
+  width: 270px;
 }
 /*------------------End Footer---------------------*/
 @media screen and (max-width: 1200px) {
@@ -2169,6 +2204,12 @@ footer .container .info .social-box .social-item {
   .top-search.inline.hidden-xs .search-form input {
     padding-left: 5px;
   }
+  footer .navbar-default .navbar-nav > li:last-child > a {
+    padding-right: 0;
+  }
+  footer .container {
+    width: 100%;
+  }
   /*
   .big-slider .nav > li.active:before {
     content: "";
@@ -2194,6 +2235,24 @@ footer .container .info .social-box .social-item {
   }
   .container {
     width: 1230px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  footer .navbar-default.navbar .navbar-nav.center-nav {
+    float: none;
+    text-align: center;
+    padding-right: 280px;
+  }
+  footer .navbar-default .navbar-nav.center-nav > li {
+    float: none;
+  }
+  footer .navbar-default .navbar-nav.center-nav > li > a {
+    line-height: 24px;
+  }
+  footer .navbar-default.navbar .navbar-nav.info {
+    top: 0;
+    right: 30px;
   }
 }
 
@@ -2230,6 +2289,9 @@ footer .container .info .social-box .social-item {
     float: none;
     width: 100%;
   }
+  footer .navbar-default.navbar .navbar-nav.info {
+    right: 30px;
+  }
 }
 
 
@@ -2252,7 +2314,7 @@ footer .container .info .social-box .social-item {
     display: block;
   }
 }
-@media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
+@media all and (min-width: 992px), all and (min-width: 992px) {
   .carousel-showmanymoveone .carousel-inner > .item.active.right,
   .carousel-showmanymoveone .carousel-inner > .item.next {
     transform: translate3d(25%, 0, 0);
@@ -2374,7 +2436,7 @@ footer .container .info .social-box .social-item {
     padding-bottom: 0;
   }
 }
-@media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
+@media all and (min-width: 768px), all and (min-width: 768px) {
   .carousel-showmanymoveone .carousel-inner > .item.active.right,
   .carousel-showmanymoveone .carousel-inner > .item.next {
     transform: translate3d(50%, 0, 0);
@@ -2444,9 +2506,6 @@ footer .container .info .social-box .social-item {
   .opinion-block .opinion-text {
     margin-left: 0;
     text-align: center;
-  }
-  footer .container .info {
-    text-align: left;
   }
   .site-header {
     padding: 0;
@@ -2662,6 +2721,20 @@ footer .container .info .social-box .social-item {
   .big-slider .slider-slides .carousel-caption {
     bottom: 0%;
   }
+  footer .navbar-default.navbar .navbar-nav.center-nav {
+    margin-top: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+  footer .navbar-default.navbar .navbar-nav.info {
+    position: relative;
+    padding-left: 127px;
+    right: 0;
+    width: 100%;
+  }
+  footer .navbar-default.navbar .navbar-nav.info .social-box {
+    float: left;
+  }
 }
 @media screen and (max-width: 555px) {
   .timeline .timeline-item .item-img {
@@ -2727,6 +2800,15 @@ footer .container .info .social-box .social-item {
   }
   .search-section .opinion-block.bloger {
     padding: 10px 0;
+  }
+  footer .container .logo {
+    position: relative;
+  }
+  footer .navbar-default.navbar .navbar-nav {
+    padding-left: 0;
+  }
+  footer .navbar-default.navbar .navbar-nav.info {
+    padding-left: 15px;
   }
 }
 
